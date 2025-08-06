@@ -2,10 +2,6 @@
 
 A user-friendly Python GUI tool for automated Microsoft 365 user offboarding and deactivation.
 
-# M365 User Deactivator GUI
-
-A user-friendly Python GUI tool for automated Microsoft 365 user offboarding and deactivation.
-
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-windows-lightgrey.svg)
