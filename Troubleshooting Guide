@@ -34,3 +34,89 @@ This guide covers common issues and solutions for installation, setup, and usage
 - **Solution:** Install dependencies:
   ```bash
   pip install -r requirements.txt
+
+## 3. Azure/M365 Connection Issues
+
+### "Connection failed" or "Authentication error"
+- **Problem:** The app can't connect to Microsoft 365.
+- **Checklist:**
+  - Double-check your Tenant ID, Client ID, and Client Secret.
+  - Make sure your Azure App Registration has the correct permissions:
+    - `User.ReadWrite.All`
+    - `Directory.ReadWrite.All`
+    - `DeviceManagementManagedDevices.ReadWrite.All`
+    - `UserAuthenticationMethod.ReadWrite.All`
+  - Admin consent must be granted for these permissions.
+  - The client secret must not be expired.
+
+---
+
+## 4. User Search Issues
+
+### "No users found"
+- **Problem:** The search returns no results.
+- **Solutions:**
+  - Try searching with only the first or last name.
+  - Check for typos or extra spaces.
+  - Make sure the user exists in your M365 tenant.
+
+---
+
+## 5. Offboarding Task Issues
+
+### "Mailbox conversion failed"
+- **Problem:** The script can't convert the mailbox to shared.
+- **Solutions:**
+  - Ensure the account has an Exchange Online license.
+  - Check if additional Exchange permissions are needed.
+
+### "License removal failed"
+- **Problem:** The script can't remove licenses.
+- **Solutions:**
+  - Make sure your app registration has `Directory.ReadWrite.All` permission.
+  - The user may already have no licenses.
+
+### "Intune session revoke failed"
+- **Problem:** The script can't revoke Intune sessions.
+- **Solutions:**
+  - Confirm the user has managed devices.
+  - Ensure the app has `DeviceManagementManagedDevices.ReadWrite.All` permission.
+
+---
+
+## 6. GUI Issues
+
+### GUI does not appear
+- **Problem:** Script runs but no window shows.
+- **Solutions:**
+  - Check if the window is minimized or behind other windows.
+  - Ensure `tkinter` is installed.
+
+### GUI freezes or is slow
+- **Problem:** The interface becomes unresponsive during operations.
+- **Explanation:** Some operations (like searching users or revoking devices) may take time. Please wait for the process to complete.
+
+---
+
+## 7. Report Issues
+
+### "Completion report not found"
+- **Problem:** The report file is missing from your Desktop.
+- **Solutions:**
+  - Check if your Desktop is synced with OneDrive (it may be in `OneDrive\Desktop`).
+  - Ensure you have write permissions to your Desktop folder.
+
+---
+
+## 8. Still Need Help?
+
+- Double-check all steps in the [Setup Guide](SETUP_GUIDE.md).
+- Review error messages in the GUI log or completion report.
+- Search for your error message online or in Microsoft documentation.
+- [Open an issue](https://github.com/yourusername/m365-user-deactivator-gui/issues) on GitHub with:
+  - Your error message(s)
+  - Steps to reproduce the problem
+  - Your Python version (`python --version`)
+  - Your Windows version
+
+---Tip: Always test with a non-critical user account before running the tool in production!
