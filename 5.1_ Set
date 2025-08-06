@@ -1,0 +1,118 @@
+# Setup Guide
+
+This guide will help you get the M365 User Deactivator GUI up and running on your system.
+
+---
+
+## 1. Prerequisites
+
+- **Windows 10/11** (recommended)
+- **Python 3.8 or higher**  
+  Download from [python.org](https://www.python.org/downloads/)
+- **Git** (optional, for cloning the repo)  
+  Download from [git-scm.com](https://git-scm.com/downloads)
+- **Microsoft 365 Admin Access**
+- **Azure Active Directory (Entra ID) Admin Access**
+
+---
+
+## 2. Clone or Download the Repository
+
+**Option A: Using Git**
+
+```bash
+git clone https://github.com/yourusername/m365-user-deactivator-gui.git
+cd m365-user-deactivator-gui
+
+Option B: Download ZIP
+
+Go to your repository on GitHub.
+Click the green "Code" button, then "Download ZIP".
+Extract the ZIP file and open the extracted folder.
+3. Install Python (if not already installed)
+Download and install Python from python.org
+During installation, check the box that says "Add Python to PATH"
+Check your Python version:
+
+bash
+Copy
+python --version
+# or
+py --version
+4. Install Dependencies
+From inside your project folder, run:
+
+bash
+Copy
+pip install -r requirements.txt
+If pip is not recognized, try:
+
+bash
+Copy
+python -m pip install -r requirements.txt
+
+or
+
+bash
+Copy
+py -m pip install -r requirements.txt
+5. Azure App Registration (Required for M365 Access)
+Go to Azure Portal
+Navigate to Azure Active Directory > App registrations
+Click New registration
+Enter a name (e.g., "M365 Deactivator Tool")
+Select Accounts in this organizational directory only
+Click Register
+After registration:
+
+Copy your Application (client) ID
+Copy your Directory (tenant) ID
+Create a Client Secret:
+
+In your app registration, go to Certificates & secrets
+Click New client secret
+Add a description and set an expiration
+Click Add and copy the Value immediately
+Add API Permissions:
+
+Go to API permissions > Add a permission
+Choose Microsoft Graph > Application permissions
+Add:
+User.ReadWrite.All
+Directory.ReadWrite.All
+DeviceManagementManagedDevices.ReadWrite.All
+UserAuthenticationMethod.ReadWrite.All
+Click Grant admin consent for your organization
+6. Run the Application
+From your project folder, run:
+
+bash
+Copy
+python m365_user_deactivator_gui.py
+or
+
+bash
+Copy
+py m365_user_deactivator_gui.py
+7. First Use
+The GUI will open.
+Enter your Tenant ID, Client ID, and Client Secret from your Azure App Registration.
+Click Connect to M365.
+Search for a user by first and last name.
+Select the user and start the offboarding process.
+8. Troubleshooting
+If you encounter issues, see TROUBLESHOOTING.md in this repository.
+Common issues include missing dependencies, authentication errors, or permission problems.
+9. Updating
+To get the latest version, run:
+
+bash
+Copy
+git pull
+from your project folder (if you cloned with Git).
+
+Need more help?
+Open an issue on the GitHub repository or consult the troubleshooting guide.
+
+
+---
