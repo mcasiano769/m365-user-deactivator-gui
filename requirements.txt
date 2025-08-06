@@ -1,1 +1,26 @@
+## Python Requirements
 
+This project uses a `requirements.txt` file to manage its Python dependencies.  
+This file lists all the external Python packages your project needs to run.
+
+### What is `requirements.txt`?
+
+- It’s a plain text file.
+- Each line specifies a package and (optionally) a version.
+- It allows anyone to quickly install all dependencies with a single command.
+
+### How to Install Dependencies
+
+Before running the application, make sure you have Python 3.8 or higher installed.
+
+1. **Open a terminal or command prompt.**
+2. **Navigate to the project directory** (where `requirements.txt` is located).
+3. **Run:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+   This will automatically download and install all required packages.
+
+### Example `requirements.txt` for This Project
