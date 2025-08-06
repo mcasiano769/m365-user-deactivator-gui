@@ -1,0 +1,36 @@
+# Troubleshooting Guide
+
+Having trouble with the M365 User Deactivator GUI?  
+This guide covers common issues and solutions for installation, setup, and usage.
+
+
+## 1. Installation Issues
+
+### "Python was not found"
+- **Problem:** Windows can't find Python when running `python` or `pip`.
+- **Solutions:**
+  - Try using `py` instead of `python`:
+    ```bash
+    py m365_user_deactivator_gui.py
+    ```
+  - Make sure Python is installed and added to your PATH.
+  - Download Python from [python.org](https://www.python.org/downloads/) and reinstall, checking "Add Python to PATH" during setup.
+
+### "pip is not recognized"
+- **Problem:** `pip` command not found.
+- **Solutions:**
+  - Use `python -m pip` or `py -m pip`:
+    ```bash
+    python -m pip install -r requirements.txt
+    ```
+  - Ensure pip is installed (it comes with modern Python versions).
+
+---
+
+## 2. Dependency Issues
+
+### "ModuleNotFoundError: No module named 'requests'"
+- **Problem:** The `requests` library is missing.
+- **Solution:** Install dependencies:
+  ```bash
+  pip install -r requirements.txt
